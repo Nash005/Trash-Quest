@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #e8f5e9;
+    font-family: 'Press Start 2P', sans-serif;
+  }
+  canvas {
+    display: block;
+    margin: auto;
+    background-image: url("/assets/plage_vide.png");
+    background-repeat: no-repeat;
+  }
+
+  

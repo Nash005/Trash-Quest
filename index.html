@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Trash Quest</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Conteneur principal -->
+  <canvas id="gameCanvas" width="1000" height="600" >
+
+  </canvas>
+
+  <!-- Butons jouer regles parametres -->
+  <div id="popup-regles" class="popup hidden">
+    <div class="popup-content scrollable">
+      <h2 class="popup-title">RÈGLES DU JEU</h2>
+
+      <p><strong>NOMBRE DE JOUEURS :</strong> 2</p>
+      <p>
+        Deux joueurs s'affrontent pour nettoyer un environnement en triant correctement un maximum de déchets dans un temps limité, tout en évitant les pièges et en résolvant des mini-énigmes.
+      </p>
+      <p>
+        Le joueur qui a le meilleur score à la fin du temps gagne la partie !
+      </p>
+  
+      <h3><strong>COMMENT TRIER ?</strong></h3>
+      <ul class="tri-points">
+        <li><span class="green">Poubelle VERTE</span> : Verre → +3 pts</li>
+        <li><span class="yellow">Poubelle JAUNE</span> : Plastique → +2 pts</li>
+        <li><span class="brown">Poubelle MARRON</span> : Déchets organiques → +1 pt</li>
+        <li><span class="red">Poubelle ROUGE</span> : Déchets dangereux → +5 pts</li>
+      </ul>
+  
+      <h3><strong>OBSTACLES :</strong></h3>
+      <p>Pièges à éviter </p>
+      <button class="btn" onclick="closePopup('regles')">Fermer</button>
+    </div>
+  </div>
+
+  <div id="popup-parametres" class="popup hidden">
+    <div class="popup-content">
+      <h2>Paramètres</h2>
+      <label for="volumeRange">Volume :</label>
+      <input type="range" id="volumeRange" min="0" max="100" value="50">
+      <br>
+      <label><input type="checkbox" id="muteCheckbox"> Mettre en sourdine</label>
+      <br>
+      <label>Contrôles :
+        <select id="controlChoice">
+          <option value="arrows">Flèches directionnelles</option>
+          <option value="wasd">Touches WASD</option>
+        </select>
+
+      </label>
+      <br>
+      <button class="btn" onclick="closePopup('parametres')">Fermer</button>
+    </div>
+  </div>
+
+  <!-- Zone pour le choix des personnages -->
+  <div id="character-selection" class="popup hidden">
+    <div class="popup-content">
+      <h2 id="selection-title">Eco Warrior 1 : choisis ton personnage</h2>
+      <input type="text" id="playerName" placeholder="Entrez votre pseudo">
+      <div class="card-container">
+        <div class="card" onclick="selectCharacter(1)"><img src="./assets/3PERSO-01.png"></div>
+        <div class="card" onclick="selectCharacter(2)"><img src="./assets/3PERSO-02.png"></div>
+        <div class="card" onclick="selectCharacter(3)"><img src="./assets/3PERSO-03.png"></div>
+      </div>
+      <button class="btn" onclick="backStep()">Retour</button>
+      <button class="btn hidden" id="nextBtn" onclick="nextPlayer()">Suivant</button>
+      <button class="btn hidden" id="startGameBtn" onclick="startGame()">Jouer</button>
+    </div>
+  </div>
+
+
+  <script src="js/main.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/perso.js"></script>
+  <script src="js/audio.js"></script>
+</body>
+</html>
